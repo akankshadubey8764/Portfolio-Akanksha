@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Education - Akanksha</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <script>
+      document.documentElement.classList.remove("no-js");
+      document.documentElement.classList.add("js");
+    </script>
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+      }
+      header {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+      header h1 {
+        margin: 0;
+      }
+      .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+      }
+      section {
+        padding: 20px 0;
+        margin-bottom: 10px;
+        background-color: white;
+        border-radius: 0px;
+        /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+      }
+      .education,
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .education .item,
+      .skills .item {
+        flex: 1;
+        background-color: #e0e0e0;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+      .education .item:hover {
+  background-color:#333; /* Change background color on hover */
+  color: white; /* Change text color */
+  transform: scale(1.05); /* Slightly enlarge the block */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+}
+      .education .item i,
+      .skills .item i {
+        font-size: 40px;
+        margin-bottom: 15px;
+        color: #333;
+        transition: color 0.3s ease;
+      }
+      .education .item :hover i{
+        color: #fff;
+
+      }
+      .education .item h3,
+      .skills .item h3 {
+        font-size: 18px;
+        color: #333;
+        transition: color 0.3s ease;
+      }
+      .education .item:hover h3 {
+  color: #fff; /* Change text color on hover */
+}
+      .education .item p,
+      .skills .item p {
+        font-size: 16px;
+        color: #777;
+        transition: color 0.3s ease;
+      }
+
+.education .item:hover p {
+  color: #fff; /* Change paragraph text color on hover */
+}
+      .skills .item {
+        position: relative;
+        padding-bottom: 40px;
+      }
+      .skills .item .progress-bar {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        border-radius: 5px;
+        background-color: #ddd;
+        overflow: hidden;
+      }
+      .skills .item .progress-bar span {
+        display: block;
+        height: 100%;
+        border-radius: 5px;
+        background-color: #f19f05;
+        transition: width 1.5s ease-in-out; /* Smooth transition for width */
+      }
+      .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .project-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease-in-out; 
+        }
+        .project-card:hover {
+    transform: translateY(-10px) scale(1.05); /* Slightly lift and scale up */
+}
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .project-card h3 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .project-card a {
+            text-decoration: none;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .project-card a:hover {
+            background-color: #0056b3;
+        }
+        .achievements-section {
+    background-color: #fef6e6; /* Light background */
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.achievements-section h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.achievements-list {
+    list-style: none;
+    padding: 0;
+    display: inline-block; /* Keeps the list centered */
+    text-align: center;
+}
+
+.achievements-list li {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 15px 0;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+/* .achievements-list li::before {
+    content: "✔ ";
+    color: #28a745; 
+    font-weight: bold;
+} */
+
+.highlight {
+    font-weight: bold;
+    color: #007bff; /* Blue highlight */
+}
+
+
+      /* Add animation for when the page loads */
+      @keyframes progressWave {
+        0% {
+          width: 0;
+        }
+        50% {
+          width: var(--progress-width);
+        }
+        100% {
+          width: 0;
+        }
+      }
+
+      .skills .item .progress-bar span {
+        animation: progressWave 2s ease-in-out infinite;
+      }
+      /* JavaScript sets the progress width dynamically */
+    </style>
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/vendor.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+  </head>
+
+  <body id="top">
+    <div id="page" class="s-pagewrap">
+      <header class="s-header">
+        <div class="row s-header__inner width-sixteen-col">
+          <div class="s-header__block">
+            <div class="s-header__logo">
+              <a class="logo" href="index.html">
+                <img src="images/image.png" alt="Homepage" />
+              </a>
+            </div>
+            <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+          </div>
+          <nav class="s-header__nav">
+            <ul class="s-header__menu-links">
+              <li><a href="about.html">About</a></li>
+              <li class="current"><a href="services.html">Education</a></li>
+              <!-- <li><a href="certifications.html">Certifications</a></li> -->
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <section id="content" class="s-content">
+        <section class="s-pageheader pageheader" style="margin: 0;">
+            <div class="row">
+                <div class="column xl-12">
+                    
+                    <h3 class="page-title">Academics</h3>
+                    <span class="page-title__small-type text-pretitle">
+                        <p>A record of my academic accomplishments and the skills I bring to the table.</p></span>
+                </div>
+            </div>
+        </section>
+      <div class="container">
+        <section class="s-pagecontent pagecontent" >
+          <h2>Educational Qualifications</h2>
+          <div class="education">
+            <div class="item">
+              <i class="fas fa-graduation-cap"></i>
+              <h3>Bachelor of Engineering (ECE)</h3>
+              <p>Thantai Periyar Government Institute of Technology, Vellore.</p>
+              <p>CGPA: 8.0</p>
+              <p>Will Graduate: 2025</p>
+            </div>
+            <div class="item">
+              <i class="fas fa-school"></i>
+              <h3>Higher Secondary(Maths, CS)</h3>
+              <p>N Krishnaswamy Mudaliar Higher Secondary School, Vellore.</p>
+              <p>Percentage: 92.8% </p>
+              <p>Graduated: 2021</p>
+            </div>
+            <div class="item">
+              <i class="fas fa-pencil-ruler"></i>
+              <h3>Secondary School</h3>
+              <p>N Krishnaswamy Mudaliar Higher Secondary School, Vellore.</p>
+              <p>Percentage: 93.14%</p>
+              <p>Graduated: 2019</p>
+            </div>
+          </div>
+        </section>
+
+        <section style="margin-top: 20px; margin-bottom: 100px;">
+          <h2>Skills</h2>
+          <div class="skills">
+            <div></div>
+            <div class="item">
+              <i class="fab fa-html5"></i>
+              <h3>HTML</h3>
+              <div class="progress-bar">
+                <span style="--progress-width: 80%"></span>
+              </div>
+            </div>
+            <div class="item">
+              <i class="fab fa-css3-alt"></i>
+              <h3>CSS</h3>
+              <div class="progress-bar">
+                <span style="--progress-width: 75%"></span>
+              </div>
+            </div>
+            <div class="item">
+              <i class="fab fa-js-square"></i>
+              <h3>JavaScript</h3>
+              <div class="progress-bar">
+                <span style="--progress-width: 40%"></span>
+              </div>
+            </div>
+
+            <!-- Java Icon -->
+            <div class="item">
+              <i class="fas fa-cogs"></i> <!-- Java icon (generic programming icon) -->
+              <h3>Java</h3>
+              <div class="progress-bar">
+                  <span style="--progress-width: 65%"></span>
+              </div>
+            </div>
+
+            <div class="item">
+              <i class="fas fa-database"></i>
+              <h3>MySQL</h3>
+              <div class="progress-bar">
+                <span style="--progress-width: 40%"></span>
+              </div>
+            </div>
+            <!-- DSA Icon -->
+             <div class="item">
+                <i class="fas fa-code"></i> <!-- DSA icon (generic code icon) -->
+                <h3>DSA</h3>
+                <div class="progress-bar">
+                 <span style="--progress-width: 45%"></span>
+                </div>
+             </div>
+          </div>
+        </section>
+        <section>
+          <h2>Projects</h2>
+          <div class="projects" style="margin-bottom: 40px;">
+              <!-- Project Card 0-->
+              <div class="project-card" style="margin-bottom: 20px;">
+                <img src="images/projects/portfolio.png" alt="Project 0">
+                <h3>PROFESSIONAL PORTFOLIO</h3>
+                <p> <strong>Technologies Used: </strong>HTML5,CSS,Bootstrap,Javascript.</p>
+                <a href="https://link-to-project.com" target="_blank">View Project</a>
+            </div>
+              <div class="project-card" style="margin-bottom: 20px;">
+                  <img src="images/projects/messbill.png" alt="Project 1">
+                  <h3>HOSTEL MESS BILL MANAGEMENT SYSTEM</h3>
+                  <p> <strong>Technologies Used: </strong>HTML5,CSS,Bootstrap,Javascript,jQuery,PHP,MySQL.</p>
+                  <a href="https://link-to-project.com" target="_blank">View Project</a>
+              </div>
+              
+              <!-- Project Card 2 -->
+              <div class="project-card" style="margin-bottom: 20px;">
+                  <img src="images/projects/costcalculation.png" alt="Project 2">
+                  <h4>GOOGLE <br>INVOICE <br> GENERATION</h4>
+                  <p><strong>Technologies Used: </strong>HTML5,CSS,Javascript.</p>
+                  <a href="https://link-to-project.com" target="_blank">View Project</a>
+              </div>
+
+              <!-- Project Card 3 -->
+              <div class="project-card" style="margin-bottom: 20px;">
+                  <img src="images/projects/ecomweb.png" alt="Project 3">
+                  <h3>e-COMMERCE WEBSITE</h3>
+                  <p><strong>Technologies Used: </strong>HTML5,CSS,Javascript.</p>
+                  <a href="https://akankshadubey8764-e-comwebsite.netlify.app/" target="_blank">View Project</a>
+              </div>
+
+              <div class="project-card">
+                <img src="images/projects/cg.png" alt="Project 4">
+                <h3>CAREER GUIDANCE WEBSITE</h3>
+                <p><strong>Technologies Used: </strong>HTML5,CSS,Javascript.</p>
+                <a href="https://akankshadubey8764.github.io/career-guidance/index.html" target="_blank">View Project</a>
+            </div>
+
+              <div class="project-card">
+                <img src="images/projects/expense.png" alt="Project 5">
+                <h3>EXPENSE <br> TRACKER</h3>
+                <p><strong>Technologies Used: </strong>HTML5,CSS,Javascript.</p>
+                <a href="https://akankshadubey8764.github.io/expense-tarcker/index.html" target="_blank">View Project</a>
+            </div>
+
+              <!-- More project cards can be added as needed -->
+          </div>
+        </section>
+      </div><section id="achievements" class="achievements-section">
+        <h2>Achievements</h2>
+        <ul class="achievements-list">
+            <li>
+              Secured <span class="highlight">3rd place</span> and received a cash prize in the Intra-College Hackathon for developing a Hostel Mess Bill Management System.
+            </li>
+            <li>
+              Achieved 2nd place in CodeWhizz, an inter-college coding competition.
+            </li>
+            <li>
+              Won 2nd place in a Paper Presentation at the Inter-College Symposium.
+            </li>
+            <li>
+              Led and managed 25 to 45 participants during the college symposium, guiding junior students in event coordination.
+            </li>
+        </ul>
+    </section>
+    
+
+      <footer class="s-footer">
+        <div class="row s-footer__content">
+          <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
+            <h3>About Akanksha</h3>
+            <p>
+              I’m a final-year student passionate about software development and
+              engineering. My interests lie in coding, problem-solving, and
+              building applications that make a difference. As a fresher, I’m
+              enthusiastic about learning new technologies and contributing to
+              innovative projects.
+            </p>
+          </div>
+          <div
+            class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links"
+          >
+            <h3>Site Links</h3>
+            <ul class="link-list">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">About</a></li>
+              <li><a href="blog.html">Educations</a></li>
+              <li><a href="about.html">Projects</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              
+            </ul>
+          </div>
+          <div
+            class="column xl-3 lg-6 md-12 tab-12 s-footer__block s-footer__newsletter"
+          >
+            <!-- <h3>Newsletter</h3>
+    
+                        <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere ratione dignissimos.
+                        </p> -->
+
+            <div class="subscribe-form">
+              <form id="mc-form" class="mc-form">
+                <h3 style="color: aliceblue">Contact</h3>
+                <input
+                  type="email"
+                  name="EMAIL"
+                  id="mce-EMAIL"
+                  class="u-fullwidth text-center"
+                  placeholder="Your Email Address"
+                  title="The domain portion of the email address is invalid (the portion after the @)."
+                  pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$"
+                  required
+                />
+                <input
+                  type="submit"
+                  name="subscribe"
+                  value="Subscribe"
+                  class="btn btn--primary btn--small u-fullwidth"
+                />
+                <!-- <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_cdb7b577e41181934ed6a6a44_9a91cfe7b3" tabindex="-1" value=""></div> -->
+                <div class="mc-status"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="row s-footer__bottom">
+          <div class="column xl-6 lg-12">
+            <ul class="s-footer__social social-list">
+              <li>
+                <a href="">
+                  <i style="color: #777;width: 20px; height: 20px;" class="fas fa-envelope"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/akanksha-dubey-s-891b4527b/">
+                  <i style="color: #777; width: 20px; height: 20px;" class="fab fa-linkedin"></i>
+                </a>
+              </li>
+              <li><a href="https://github.com/akankshadubey8764">
+                <i style=" width: 20px; height: 20px; color: #777;" class="fab fa-github"></i>  
+              </a></li>
+              <li>
+                <a href="https://www.instagram.com/sakshidubey_8764/">
+                  <i style=" width: 20px; height: 20px; color: #777;" class="fab fa-instagram"></i> 
+                  <span class="u-screen-reader-text">Instagram</span>
+                </a>
+              </li>
+            </ul>
+            <!-- end s-footer__social -->
+          </div>
+          <div class="column xl-6 lg-12">
+            <p class="ss-copyright">
+              <span>© Copyright Akanksha 2025</span>
+              <!-- <span>Design by <a href="https://www.styleshout.com/">StyleShout</a> Distribution By <a href="https://themewagon.com">ThemeWagon</a></span> -->
+            </p>
+          </div>
+
+          <div class="ss-go-top">
+            <a class="smoothscroll" title="Back to Top" href="#top">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="36"
+                height="36"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                &lt;!--! Atomicons Free 1.00 by @atisalab License -
+                https://atomicons.com/license/ (Icons: CC BY 4.0) Copyright 2021
+                Atomicons --&gt;
+                <polyline points="17 11 12 6 7 11"></polyline>
+                <line x1="12" y1="18" x2="12" y2="6"></line>
+              </svg>
+            </a>
+          </div>
+          <!-- end ss-go-top -->
+        </div>
+      </footer>
+    </div>
+
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+    
+</body>
+</html>
