@@ -2066,9 +2066,9 @@ select {
 	transform       : rotate(45deg);
 }
 
-textarea {
+/* textarea {
 	min-height: calc(8 * var(--space));
-}
+} */
 
 input[type=email]:focus,
 input[type=number]:focus,

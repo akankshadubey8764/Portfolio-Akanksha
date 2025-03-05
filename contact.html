@@ -249,34 +249,17 @@
           <div
             class="column xl-3 lg-6 md-12 tab-12 s-footer__block s-footer__newsletter"
           >
-            <!-- <h3>Newsletter</h3>
-        
-                            <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere ratione dignissimos.
-                            </p> -->
-
-            <div class="subscribe-form">
-              <form id="mc-form" class="mc-form">
-                <h3 style="color: aliceblue">Contact</h3>
-                <input
-                  type="email"
-                  name="EMAIL"
-                  id="mce-EMAIL"
-                  class="u-fullwidth text-center"
-                  placeholder="Your Email Address"
-                  title="The domain portion of the email address is invalid (the portion after the @)."
-                  pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$"
-                  required
-                />
-                <input
-                  type="submit"
-                  name="subscribe"
-                  value="Subscribe"
-                  class="btn btn--primary btn--small u-fullwidth"
-                />
-                <!-- <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_cdb7b577e41181934ed6a6a44_9a91cfe7b3" tabindex="-1" value=""></div> -->
-                <div class="mc-status"></div>
-              </form>
+          <div class="subscribe-form">
+            <form name="submit-to-google-sheet" id="mc-form" class="mc-form">
+              <h3 style="color: aliceblue">Contact</h3> 
+              <input type = "text" style="border: 0; background: #262626; color: aliceblue; outline: none; padding: 15px; margin: 10px 0;" class="u-fullwidth text-center" name = "Name" placeholder = "  Your Name" required>
+              <input type = "email" name = "email"class="u-fullwidth text-center" placeholder = "Your Email Address" required>
+              <textarea  style="border: 0; width: 400px !important; height: 80px !important; background: #262626; outline: none; color: aliceblue; padding: 15px; margin: 10px 0;" class="u-fullwidth text-center"  name = "Message" placeholder = "Your Message" required></textarea>
+              <button type="submit"  style="background-color: hsla(35, 87%, 49%, 1); border: 0; padding: 5px 50px;cursor: pointer;">Submit</button>
+              <div class="mc-status"></div>
+            </form>
+            <span id = "msg" style="color: hsla(35, 87%, 49%, 1); display: block ; margin-top: 5px;"></span>
+    
             </div>
           </div>
         </div>
@@ -360,5 +343,23 @@
     ================================================== -->
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycby9yW-Fm7XNBRTfKv2PLcea0KZ3F3vYIJ8PMgt8IVbpHAlprrbC8fi-aKIodOt4YjCD/exec'
+      const form = document.forms['submit-to-google-sheet']
+      const msg = document.getElementById("msg")
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+            msg.innerHTML = "Message Submitted successfully"
+            setTimeout(function(){
+              msg.innerHTML = ""
+            },5000)
+            form.reset()
+          })
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
   </body>
 </html>
